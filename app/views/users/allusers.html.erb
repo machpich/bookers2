@@ -1,15 +1,19 @@
 <div class="container">
-個人ページの作成
+
+	<%= render 'users/prof', user: @user, book: @book %>
 
 	<h2 class="new-section-title">Users</h2>
-	<table>
-		<% @users.each do |user| %>
-			<tr>
-				<td><%= attachment_image_tag user, :profile_image, :fill, 100, 100 %></td>
-				<td><%= user.name%></td>
-				<td><%= user.body%></td>
-			</tr>
-		<%end%>
-	</table>
-
+		<table>
+			<% @users.each do |user| %>
+				<tr>
+					<td class="user_td"><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"allusers_profile_image profile_image" %></td>
+					<td class="user_td">
+						<div class="users_username"><%= user.name %></div>
+						<div class="users_usertext">
+							<%= user.body%>
+						</div>
+					</td>
+				</tr>
+			<%end%>
+		</table>
 </div>

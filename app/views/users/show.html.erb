@@ -1,40 +1,4 @@
 <div class="container">
-個人ページの作成
-
-	<h2 class="new-section-title">Profile</h2>
-	<div class="profile-box">
-	<%= attachment_image_tag @user, :profile_image, :fill, 200, 200, class:"edit_profile_image profile_image" %>
-	<h5><%= @user.name %> <%= link_to "[ 設定 ]",edit_user_path(@user) %></h5>
-	<p><%= @user.body %></p>
-
-	</div>
-
-
-	<h2 class="new-section-title">NEW BOOK</h2>
-	<%= form_for(@book) do |f| %>
-	<%= f.text_field :title, placeholder:"Title" %>
-	<%= f.text_area :body, placeholder:"Comment" %>
-
-	<%= f.submit %>
-	<% end %>
-
-	<h2 class="new-section-title">BOOKS</h1>
-	<table>
-		<tbody>
-			<% @books.each do |book| %>
-				<tr>
-					<td class="books-title-td">
-						<%= link_to "『 #{truncate(book.title, length: 15)} 』", book_path(book) %></td>
-					<td class="books-body-td"><%= truncate(book.body, length: 15) %></td>
-					<td class="books-edit-td">
-						<%= link_to "[Show]", book_path(book) %>
-						<%= link_to "[edit]", edit_book_path(book) %>
-						<%= link_to "[delete]", book_path(book), method: :delete, data: { confirm: "削除しますか？"} %>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-
-
+<%= render 'users/prof', user: @user, book: @book %>
+<%= render 'books/list', books: @books, user:@user %>
 </div>

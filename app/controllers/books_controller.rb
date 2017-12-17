@@ -1,7 +1,10 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @books = Book.all
     @book = Book.new
+    @user = User.find(current_user.id)
   end
 
   def create
@@ -9,14 +12,15 @@ class BooksController < ApplicationController
     @book.user_id = current_user.id
   	if @book.save
       flash[:notice] = "投稿しました";
+      redirect_to user_path(@book.user_id)
     else
-      flash[:notice] = "投稿に失敗しました"
+      flash[:alert] = "投稿に失敗しました"
     end
-  	redirect_to books_path
   end
 
   def show
-  	@book = Book.find(params[:id])
+      @book = Book.find(params[:id])
+      @user = User.find(current_user.id)
   end
 
   def edit
@@ -28,7 +32,7 @@ class BooksController < ApplicationController
   	if @book.destroy
       flash[:notice] = "削除しました"
     else
-      flash[:notice] = "削除に失敗しました"
+      flash[:alert] = "削除に失敗しました"
     end
   	redirect_to books_path
   end
@@ -38,7 +42,7 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       flash[:notice] = "編集しました"
     else
-      flash[:notice] = "編集に失敗しました"
+      flash[:alert] = "編集に失敗しました"
     end
   	redirect_to book_path(@book)
   end

@@ -1,20 +1,4 @@
 <div class="container">
-
-	<h2 class="new-section-title">BOOKS</h1>
-	<table>
-		<tbody>
-			<% @books.each do |book| %>
-				<tr>
-					<td class="books-title-td">
-						<%= link_to "『 #{truncate(book.title, length: 15)} 』", book_path(book) %></td>
-					<td class="books-body-td"><%= truncate(book.body, length: 15) %></td>
-					<td class="books-edit-td">
-						<%= link_to "[Show]", book_path(book) %>
-						<%= link_to "[edit]", edit_book_path(book) %>
-						<%= link_to "[delete]", book_path(book), method: :delete, data: { confirm: "削除しますか？"} %>
-					</td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
+<%= render 'users/prof', user: @user, book: @book %>
+<%= render 'books/list', books: @books, user: @user %>
 </div>

@@ -1,0 +1,20 @@
+	<h2 class="new-section-title">BOOKS</h1>
+	<table>
+		<tbody>
+			<% @books.each do |book| %>
+				<tr>
+					<td class="book_user_icon">
+						<%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", class: "profile_image list_profile_image" %>
+					</td>
+					<td class="books-td240">
+						<%= link_to "『 #{truncate(book.title, length: 15)} 』", book_path(book) %></td>
+					<td class="books-td240"><%= truncate(book.body, length: 15) %></td>
+					<td class="books-edit-td">
+						<%= link_to "[Show]", book_path(book) %>
+						<%= link_to "[edit]", edit_book_path(book) %>
+						<%= link_to "[delete]", book_path(book), method: :delete, data: { confirm: "削除しますか？"} %>
+					</td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>

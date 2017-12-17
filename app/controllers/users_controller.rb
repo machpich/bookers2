@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
   	@user = User.find(params[:id])
   	@books = Book.where(user_id: @user.id)
@@ -14,13 +16,15 @@ class UsersController < ApplicationController
   	if @user.update(user_params)
   		flash[:notice] = "プロフィールを更新しました"
   	else
-  		flash[:notice] = "プロフィールの更新に失敗しました"
+  		flash[:alert] = "プロフィールの更新に失敗しました"
   	end
   	redirect_to user_path
   end
 
   def allusers
     @users = User.all
+    @user = User.find(current_user.id)
+    @book = Book.new()
   end
 
   private

@@ -1,4 +1,6 @@
 <div class="container show-rayout">
+
+<%= render 'users/prof', user: @user, book: @book %>
 	<h1 class="show-title"><%= link_to "『 #{@book.title} 』",books_path %></h1>
 	<div class="show-body">
 		<p><%= simple_format(@book.body) %></p>

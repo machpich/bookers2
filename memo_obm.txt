@@ -7,6 +7,17 @@
 中　5-9
 -------------
 Comment
+5ー9概ね作成
+
+残ってる内容
+・Bootstrap使ったデザイン
+・ログインユーザーによるedit,destroyボタンの許可
+
+・ログインしたタイミングでの画面の推移を変更したい　→　deviseかな？
+・BOOKERSロゴを打ったタイミングでの画面推移を変更したい
+
+ gogogo@gogo.com gogogogo
+ rururu@rururu.com rururu
 
 
 2017-12-15金 ======================

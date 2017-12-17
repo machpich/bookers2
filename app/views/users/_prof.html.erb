@@ -1,0 +1,15 @@
+	<h2 class="new-section-title">Profile</h2>
+		<div class="profile-box">
+			<%= attachment_image_tag user, :profile_image, :fill, 200, 200, class:"edit_profile_image profile_image" %>
+			<p class="show_username"><%= user.name %> <%= link_to "[ 設定 ]",edit_user_path(user) %></p>
+			<p class="show_usertext"><%= user.body %></p>
+		</div>
+
+
+	<h2 class="new-section-title">NEW BOOK</h2>
+	<%= form_for(book) do |f| %>
+	<%= f.text_field :title, placeholder:"Title" %>
+	<%= f.text_area :body, placeholder:"Comment" %>
+
+	<%= f.submit %>
+	<% end %>
