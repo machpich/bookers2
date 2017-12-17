@@ -1,0 +1,11 @@
+<div class="container show-rayout">
+	<h1 class="show-title"><%= link_to "『 #{@book.title} 』",books_path %></h1>
+	<div class="show-body">
+		<p><%= simple_format(@book.body) %></p>
+		<div class="show-body-etc">
+			<%= link_to "[edit]", edit_book_path(@book) %>
+			<%= link_to "[delete]", book_path(@book), method: :delete, data: { confirm: "削除しますか？"} %>
+			<p class="show-date"><%= @book[:created_at].strftime("%Y-%m-%d %H:%M") %></p>
+		</div>
+	</div>
+</div>

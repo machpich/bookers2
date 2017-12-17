@@ -1,0 +1,18 @@
+<div class="bg">
+	<div class="inner_bg">
+		<section class="container welcome-field">
+			<%= link_to " BOOCKERS ", books_path, class:"link-to-new" %>
+			<div>
+				<span class="fa fa-hand-o-up"></span>
+			</div>
+			<p class="welcome-text">BOOKERSは読書記録を行うサービスです<br>
+			さまざまな書籍に関するあなたの意見や印象を<br>
+			共有し交換することができます</p>
+
+			<div class="welcom-button">
+				<%= link_to "Sing-in", new_user_session_path ,class:"btn btn_signin"%>
+				<%= link_to "Sing-up", new_user_registration_path ,class:"btn btn_signup"%>
+			</div>
+		</section>
+	</div>
+</div>

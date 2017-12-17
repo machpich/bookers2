@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body>
+  	<header class="clear-fix">
+      <div class="header-left">
+        <span class="fa fa-book"></span><%= link_to "BOOKERS", books_path, class: "logo" %>
+      </div>
+      <div class="header-right">
+        <ul>
+          <li><%= link_to root_path do %>TOP<% end %></li>
+          <li><%= link_to books_about_path do %>ABOUT<% end %></li>
+          <li><%= link_to new_user_registration_path do %>SIGN-UP<% end %></li>
+          <li><%= link_to new_user_session_path do %>LOG-IN<% end %></li>
+          <li><%= link_to books_path do %>HOME<% end %></li>
+          <li>USRS</li>
+          <li>BOOKS</li>
+          <li><%= link_to destroy_user_session_path,method: :delete do %>LOG-OUT<% end %></li>
+        </ul>
+      </div>
+  	</header>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %> <span class="fa fa-thumbs-o-up"></span>
+      </div>
+    <% end %>
+
+ <!-- /header -->
+    <%= yield %>
+  </body>
+</html>
