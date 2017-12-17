@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :name, length: {in: 2..20}, presence: true;
+
+  has_many :books
+
+  attachment :profile_image
 end

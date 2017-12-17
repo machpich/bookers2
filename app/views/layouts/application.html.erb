@@ -16,14 +16,17 @@
       </div>
       <div class="header-right">
         <ul>
-          <li><%= link_to root_path do %>TOP<% end %></li>
-          <li><%= link_to books_about_path do %>ABOUT<% end %></li>
-          <li><%= link_to new_user_registration_path do %>SIGN-UP<% end %></li>
-          <li><%= link_to new_user_session_path do %>LOG-IN<% end %></li>
-          <li><%= link_to books_path do %>HOME<% end %></li>
-          <li>USRS</li>
-          <li>BOOKS</li>
-          <li><%= link_to destroy_user_session_path,method: :delete do %>LOG-OUT<% end %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to user_path(current_user.id) do %>HOME<% end %></li>
+            <li><%= link_to allusers_path do %>USRS<% end %></li>
+            <li><%= link_to books_path do %>BOOKS<% end %></li>
+            <li><%= link_to destroy_user_session_path,method: :delete do %>LOG-OUT<% end %></li>
+          <%else%>
+            <li><%= link_to root_path do %>TOP<% end %></li>
+            <li><%= link_to books_about_path do %>ABOUT<% end %></li>
+            <li><%= link_to new_user_registration_path do %>SIGN-UP<% end %></li>
+            <li><%= link_to new_user_session_path do %>LOG-IN<% end %></li>
+          <% end %>
         </ul>
       </div>
   	</header>

@@ -1,0 +1,15 @@
+<div class="container">
+	<h2 class="new-section-title">Edit</h2>
+
+	<%= attachment_image_tag @user, :profile_image, :fill, 200, 200, class:"edit_profile_image profile_image" %>
+
+	<%= form_for(@user) do |f| %>
+	<p>name:</p>
+	<%= f.text_field :name, placeholder:"name" %>
+	<p>comment:</p>
+	<%= f.text_area :body, placeholder:"profile comment" %>
+	<%= f.attachment_field :profile_image %>
+
+	<%= f.submit %>
+	<% end %>
+</div>
