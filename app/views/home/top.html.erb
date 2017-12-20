@@ -1,7 +1,9 @@
 <div class="bg">
 	<div class="inner_bg">
-		<section class="container welcome-field">
-			<%= link_to " BOOCKERS ", books_path, class:"link-to-new" %>
+		<section class="welcome-field">
+			<div class="link-to-new">
+				BOOCKERS
+			</div>
 			<div>
 				<span class="fa fa-hand-o-up"></span>
 			</div>
@@ -10,8 +12,8 @@
 			共有し交換することができます</p>
 
 			<div class="welcom-button">
-				<%= link_to "Sing-in", new_user_session_path ,class:"btn btn_signin"%>
-				<%= link_to "Sing-up", new_user_registration_path ,class:"btn btn_signup"%>
+				<%= link_to "Sing-in", new_user_session_path ,class:"btn btn-primary"%>
+				<%= link_to "Sing-up", new_user_registration_path ,class:"btn btn-warning btn-space"%>
 			</div>
 		</section>
 	</div>

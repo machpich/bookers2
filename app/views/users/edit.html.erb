@@ -1,15 +1,19 @@
 <div class="container">
-	<h2 class="new-section-title">Edit</h2>
+	<div class="col-md-4">
+		<h2 class="new-section-title section-title-right">Edit</h2>
+	</div>
+	<div class ="col-md-8">
 
-	<%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "no_image.jpg", class:"edit_profile_image profile_image" %>
+		<%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "no_image.jpg", class:"edit_profile_image profile_image" %>
 
-	<%= form_for(@user) do |f| %>
-	<p>name:</p>
-	<%= f.text_field :name, placeholder:"name" %>
-	<p>comment:</p>
-	<%= f.text_area :body, placeholder:"profile comment" %>
-	<%= f.attachment_field :profile_image %>
+		<%= form_for(@user) do |f| %>
+		<p class="form_text">name:</p>
+		<%= f.text_field :name, placeholder:"name" %>
+		<p class="form_text">comment:</p>
+		<%= f.text_area :body, placeholder:"profile comment" %>
+		<%= f.attachment_field :profile_image %>
 
-	<%= f.submit %>
-	<% end %>
+		<%= f.submit %>
+		<% end %>
+	</div>
 </div>

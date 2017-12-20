@@ -1,11 +1,11 @@
 <div class="container">
-	<h2 class="new-section-title">EDIT BOOK</h2>
-
-	<%= form_for(@book) do |f| %>
-	<%= f.text_field :title, placeholder:"Title" %>
-	<%= f.text_area :body, placeholder:"Comment" %>
-
-	<%= f.submit %>
-	<% end %>
-
+	<div class ="col-md-4">
+		<h2 class="new-section-title section-title-right">EDIT BOOK</h2>
+	</div>
+	<div class ="col-md-8">
+		<%= form_for(@book) do |f| %>
+		<%= f.text_field :title, placeholder:"Title" %>
+		<%= f.text_area :body, placeholder:"Comment" %>
+		<%= f.submit %>
+		<% end %>
 </div>

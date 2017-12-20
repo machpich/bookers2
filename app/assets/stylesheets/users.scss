@@ -11,17 +11,28 @@
 /* edit==================================== */
 
 .edit_profile_image {
-	width: 150;
+	width: 150px;
 	height: 150px;
+	display: block;
 }
 
 .show_username {
+	padding-top: 20px;
 	font-weight: 600;
+	display: inline-block;
 }
 
 .show_usertext {
-	padding: 5px 5px 50px 0;
+	width: 350px;
+	padding: 5px 5px 0 0;
 	font-size: 14px;
+	word-wrap: break-word;
+}
+
+.profile-edit-btn {
+	display: inline-block;
+	border-radius: 10px;
+	border: 1px solid #eee;
 }
 
 /* allusers==================================== */

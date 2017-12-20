@@ -1,12 +1,17 @@
 <div class="container">
-
+	<div class ="col-md-4">
 	<%= render 'users/prof', user: @user, book: @book %>
-
+	</div>
+	<div class="col-md-8">
 	<h2 class="new-section-title">Users</h2>
 		<table>
 			<% @users.each do |user| %>
 				<tr>
-					<td class="user_td"><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"allusers_profile_image profile_image" %></td>
+					<td class="user_td">
+						<%= link_to user_path(user.id) do %>
+						<%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", class:"allusers_profile_image profile_image" %>
+						<% end %>
+						</td>
 					<td class="user_td">
 						<div class="users_username"><%= user.name %></div>
 						<div class="users_usertext">
@@ -16,4 +21,5 @@
 				</tr>
 			<%end%>
 		</table>
+	</div>
 </div>

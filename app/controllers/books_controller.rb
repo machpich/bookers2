@@ -19,12 +19,16 @@ class BooksController < ApplicationController
   end
 
   def show
-      @book = Book.find(params[:id])
-      @user = User.find(current_user.id)
+    @newbook = Book.new
+    @book = Book.find(params[:id])
+    @user = User.find(current_user.id)
+    @author = User.find(@book.user_id)
   end
 
   def edit
   	@book = Book.find(params[:id])
+    @newbook = Book.new
+    @user = User.find(current_user.id)
   end
 
   def destroy
@@ -41,10 +45,11 @@ class BooksController < ApplicationController
   	@book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = "編集しました"
+      redirect_to books_path
     else
       flash[:alert] = "編集に失敗しました"
+      redirect_to books_path
     end
-  	redirect_to book_path(@book)
   end
 
   private

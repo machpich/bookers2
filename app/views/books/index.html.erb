@@ -1,4 +1,8 @@
 <div class="container">
-<%= render 'users/prof', user: @user, book: @book %>
-<%= render 'books/list', books: @books, user: @user %>
+	<div class ="col-md-4">
+		<%= render 'users/prof', user: @user, book: @book %>
+	</div>
+	<div class ="col-md-8">
+		<%= render 'books/list', books: @books, user: @user %>
+	</div>
 </div>
