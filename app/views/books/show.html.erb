@@ -3,10 +3,10 @@
 		<%= render 'users/prof', user: @user, book: @newbook %>
 	</div>
 	<div class ="col-md-8">
-		<%= link_to books_path do%>
+		<%= link_to :back do%>
 		<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
 		<% end %>
-		<h1 class="show-title"><%= link_to "『 #{@book.title} 』",books_path %></h1>
+		<h1 class="show-title"><%= link_to "『 #{@book.title} 』",user_path(@author) %></h1>
 		<div class="show-body">
 			<p><%= simple_format(@book.body) %></p>
 			<div class="show-body-etc">
